@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block body %}
+{% if searched %}
+<center>
+    <p>
+        <h3> You Searched for {{ searched }}
+        </h3>
+    </p>
+    {% if products %}
+    {% for product in products  %}
+    <hr>
+    <a href={% url 'product' product.retailer_sku %}>{{ product }}</a>
+    {% endfor %}
+
+    {% else %}
+    <br>
+    <h4>No results found :| </h4>
+    <br>
+    <img src="https://www.kindpng.com/picc/m/387-3872891_not-satisfied-black-sad-emoji-dp-hd-png.png"
+        style="width:200px; height: 200px;" />
+    {% endif %}
+
+</center>
+
+{% endif %}
+{% endblock body %}

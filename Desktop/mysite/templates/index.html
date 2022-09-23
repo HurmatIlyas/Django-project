@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+
+{% block titlle %} Home {% endblock titlle %}
+{% block body %}
+<style>
+  .container-pink {
+    width: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    text-align: center;
+    padding: 0px 0px 0px;
+    position: absolute;
+  }
+
+  .gfg {
+    margin: 3%;
+    position: relative;
+  }
+
+  .oblique {
+    position: absolute;
+    font-style: oblique;
+    bottom: 10px;
+    left: 153px;
+    color: whitesmoke;
+  }
+</style>
+
+<div class="container-fluid px-0">
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <a href="/category/Pauelos">
+          <img src="/static/img/im1.avif" class="d-block w-100" alt="...">
+        </a>
+      </div>
+      <div class="carousel-item">
+        <a href="/category/Prendas">
+          <img src="/static/img/im2.avif" class="d-block w-100" alt="...">
+        </a>
+      </div>
+      <div class="carousel-item">
+        <a href="/category/Abrigos">
+          <img src="/static/img/img4.avif" class="d-block w-100" alt="...">
+        </a>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+<div class="container my-4">
+  <center>
+    <h2 class="italic"><b>SHOP BY CATEGORY</b></h2>
+  </center>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    <div class="col">
+      <div class="card shadow-sm">
+        <a href="/category/Chaquetas">
+          <img src="/static/img/a.avif" class="d-block w-100" alt="...">
+          <h3 class="oblique">Jackets</h3>
+        </a>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card shadow-sm">
+        <a href="/category/Carteras%20y%20Neceseres">
+          <img src="/static/img/b.avif" class="d-block w-100" alt="...">
+          <h3 class="oblique">Handbags</h3>
+        </a>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card shadow-sm">
+        <a href="/category/Pauelos">
+          <img src="/static/img/c.avif" class="d-block w-100" alt="...">
+          <h3 class="oblique">Scarves</h3>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-pink" style="background-color:#fbeaeb;">
+
+  <div class="service-item align-self-start ">
+    <img
+      src="https://www.encuentromoda.com/dw/image/v2/BFRM_PRD/on/demandware.static/-/Library-Sites-Shared_Library/default/dw70f405af/icons/enviosweb5.png"
+      width="40" height="40" alt="">
+    <p class="title" style="font-family:'AvenirLight';">
+      <strong>
+        <font style="vertical-align: absolute;">
+          <font style="vertical-align: absolute;">
+            FREE SHIPPING TO STORE
+          </font>
+        </font>
+      </strong>
+    </p>
+    <p class="hidden-sm-down">
+      <font style="vertical-align: absolute;">
+        <font style="vertical-align: absolute;">
+          Home delivery from €39
+        </font>
+      </font>
+    </p>
+  </div>
+  <div class="service-item align-self-start ">
+    <img
+      src="https://www.encuentromoda.com/dw/image/v2/BFRM_PRD/on/demandware.static/-/Library-Sites-Shared_Library/default/dw4f273a73/devweb2.png"
+      width="40" height="40" alt="">
+    <p class="title" style="font-family:'AvenirLight';">
+      <strong>
+        <font style="vertical-align: absolute;">
+          <font style="vertical-align: absolute;">
+            FREE RETURNS
+          </font>
+        </font>
+      </strong>
+    </p>
+    <p class="hidden-sm-down">
+      <font style="vertical-align: absolute;">
+        <font style="vertical-align: absolute;">
+          In store and at home
+        </font>
+      </font>
+    </p>
+  </div>
+  <div class="service-item align-self-start ">
+    <img
+      src="https://www.encuentromoda.com/dw/image/v2/BFRM_PRD/on/demandware.static/-/Library-Sites-Shared_Library/default/dw0b8fcae0/0iconopagos.png"
+      width="40" height="40" alt="">
+    <p class="title" style="font-family:'AvenirLight';">
+      <strong>
+        <font style="vertical-align: absolute;">
+          <font style="vertical-align: absolute;">
+            SECURE PAYMENTS
+          </font>
+        </font>
+      </strong>
+    </p>
+    <p class="hidden-sm-down">
+      <font style="vertical-align: absolute;">
+        <font style="vertical-align: absolute;">
+          Maximum security in your online purchase
+        </font>
+      </font>
+    </p>
+  </div>
+  <div class="service-item align-self-start ">
+    <img
+      src="https://www.encuentromoda.com/dw/image/v2/BFRM_PRD/on/demandware.static/-/Library-Sites-Shared_Library/default/dw3beaf276/tel3.png"
+      width="40" height="40" alt="">
+    <p class="title" style="font-family:'AvenirLight';">
+      <strong>
+        <a href="/connect">
+          <font style="vertical-align: absolute;">
+            <font style="vertical-align: absolute;">
+              Contact Us
+            </font>
+          </font>
+        </a>
+      </strong>
+    </p>
+    <p class="hidden-sm-down">
+      <font style="vertical-align: absolute;">
+        <font style="vertical-align: absolute;">
+          Help and telephone sales
+        </font>
+      </font>
+    </p>
+  </div>
+</div>
+
+{% endblock body %}

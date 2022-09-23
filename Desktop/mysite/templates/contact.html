@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{%block title%} Contact Us {%endblock title%}
+
+{% block body %}
+<div class="container my-5">
+
+    <h1 class="text-center" style=" padding: 3rem 3rem; margin-bottom: 0px;
+    margin-top: 10px "> Contact us
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-chat-heart-fill"
+            viewBox="0 0 16 16">
+            <path
+                d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15Zm0-9.007c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z" />
+        </svg>
+    </h1>
+    <br>
+
+    <form method="POST" action="/connect">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="text" class="form-control" id="email" name="email" placeholder="name@email.com">
+        </div>
+        <div class="mb-3">
+            <label for="contactinfo" class="form-label">Contact Information</label>
+            <input type="text" class="form-control" id="contactinfo" name="contact" placeholder="Enter your phone no.">
+        </div>
+        <div class="mb-3">
+            <label for="complain" class="form-label">Complain/Suggestion</label>
+            <textarea type="text" class="form-control" id="complain" name="complain"
+                placeholder="What do you want to say?"></textarea>
+        </div>
+        <input type="submit" value="Submit" class="btn btn-outline-dark">
+
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+    </form>
+</div>
+
+{% endblock body %}

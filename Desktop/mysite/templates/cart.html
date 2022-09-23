@@ -1,0 +1,436 @@
+<!doctype html>
+<html>
+
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <style>
+        body {
+            background: #ddd;
+            min-height: 100vh;
+            vertical-align: middle;
+            display: flex;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .title {
+            margin-bottom: 5vh;
+        }
+
+        .card {
+            margin: auto;
+            max-width: 950px;
+            width: 90%;
+            box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            border-radius: 1rem;
+            border: transparent;
+        }
+
+        @media(max-width:767px) {
+            .card {
+                margin: 3vh auto;
+            }
+        }
+
+        .cart {
+            background-color: #fff;
+            padding: 4vh 5vh;
+            border-bottom-left-radius: 1rem;
+            border-top-left-radius: 1rem;
+        }
+
+        @media(max-width:767px) {
+            .cart {
+                padding: 4vh;
+                border-bottom-left-radius: unset;
+                border-top-right-radius: 1rem;
+            }
+        }
+
+        .summary {
+            background-color: #ddd;
+            border-top-right-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+            padding: 4vh;
+            color: rgb(65, 65, 65);
+        }
+
+        @media(max-width:767px) {
+            .summary {
+                border-top-right-radius: unset;
+                border-bottom-left-radius: 1rem;
+            }
+        }
+
+        .summary .col-2 {
+            padding: 0;
+        }
+
+        .summary .col-10 {
+            padding: 0;
+        }
+
+        .row {
+            margin: 0;
+        }
+
+        .title b {
+            font-size: 1.5rem;
+        }
+
+        .main {
+            margin: 0;
+            padding: 2vh 0;
+            width: 100%;
+        }
+
+        .col-2,
+        .col {
+            padding: 0 1vh;
+        }
+
+        a {
+            padding: 0 1vh;
+        }
+
+        .close {
+            margin-left: auto;
+            font-size: 0.7rem;
+        }
+
+        img {
+            width: 3.5rem;
+        }
+
+        .back-to-shop {
+            margin-top: 4.5rem;
+        }
+
+        h5 {
+            margin-top: 4vh;
+        }
+
+        hr {
+            margin-top: 1.25rem;
+        }
+
+        form {
+            padding: 2vh 0;
+        }
+
+        select {
+            border: 1px solid rgba(0, 0, 0, 0.137);
+            padding: 1.5vh 1vh;
+            margin-bottom: 4vh;
+            outline: none;
+            width: 100%;
+            background-color: rgb(247, 247, 247);
+        }
+
+        input {
+            border: 1px solid rgba(0, 0, 0, 0.137);
+            padding: 1vh;
+            margin-bottom: 4vh;
+            outline: none;
+            width: 100%;
+            background-color: rgb(247, 247, 247);
+        }
+
+        input:focus::-webkit-input-placeholder {
+            color: transparent;
+        }
+
+        .btn {
+            background-color: #000;
+            border-color: #000;
+            color: white;
+            width: 100%;
+            font-size: 0.7rem;
+            margin-top: 4vh;
+            padding: 1vh;
+            border-radius: 0;
+        }
+
+        .btn:focus {
+            box-shadow: none;
+            outline: none;
+            box-shadow: none;
+            color: white;
+            -webkit-box-shadow: none;
+            -webkit-user-select: none;
+            transition: none;
+        }
+
+        .btn:hover {
+            color: white;
+        }
+
+        a {
+            color: black;
+        }
+
+        a:hover {
+            color: black;
+            text-decoration: none;
+        }
+
+        #code {
+            background-image: linear-gradient(to left, rgba(255, 255, 255, 0.253), rgba(255, 255, 255, 0.185)), url("https://img.icons8.com/small/16/000000/long-arrow-right.png");
+            background-repeat: no-repeat;
+            background-position-x: 95%;
+            background-position-y: center;
+        }
+    </style>
+    <div class="card">
+        <div class="row">
+            <div class="col-md-8 cart">
+                <div class="title">
+                    <div class="row">
+                        <div class="col">
+                            <h4><b>Shopping Cart</b></h4>
+                        </div>
+                    </div>
+                </div>
+                {% with total_items=cart|length %}
+                {% if total_items == 0 %}
+                <div class="container-fluid  mt-100">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Cart</h5>
+                                </div>
+                                <div class="card-body cart">
+                                    <div class="col-sm-12 empty-cart-cls text-center">
+                                        <img src="https://i.imgur.com/dCdflKN.png" width="130" height="130"
+                                            class="img-fluid mb-4 mr-3">
+                                        <h3><strong>Your Cart is Empty</strong></h3>
+                                        <h4>Add something to make me happy :)</h4>
+                                        <a href="/" class="btn btn-primary cart-btn-transform m-3"
+                                            data-abc="true">Continue shopping</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endwith %}
+                <div class="row border-top border-bottom">
+                    {% for product in cart %}
+                    <div class="row main align-items-center">
+                        <div class="col-2">
+                            <img class="img-fluid" src={{ product.image }}></div>
+                        <div class="col">
+                            <div class="row text-muted"></div>
+                            <div class="row">{{ product.name }}</div>
+                        </div>
+                        <div class="col">
+                            <button id='inc'>+</button>
+                            <input data-id='{{ product.retailer_sku }}' value={{product.quantity}} type="number"
+                                style="width: 49px; height: 20px">
+                            <button id='dec'>-</button>
+                        </div>
+                        <div class="col">
+                            <span> &euro; </span> <input class='items' data-id='{{ product.price }}' type=number
+                                style="width: 78px; height: 30px" value={{ product.item_price }} readonly />
+                            <button data-id='{{ product.retailer_sku }}' class="item-button">&#10005;</button>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="back-to-shop"><a href="/">&leftarrow;</a><span class="text-muted">Back to shop</span>
+                <div>
+                    <h5><b>Summary</b></h5>
+                </div>
+                <hr>
+                <div class="row">
+                    {% with total_items=cart|length %}
+                    {% if total_items > 0 %}
+                    <div class="col" style="padding-left:0;">Total items: {{total_items}}</div>
+                    {% endif %}
+                    {% endwith %}
+                </div>
+                <form>
+                    <p>SHIPPING</p>
+                    <select>
+                        <option class="text-muted">Standard-Delivery- &euro;5.00</option>
+                    </select>
+                    <p>GIVE CODE</p>
+                    <input id="code" placeholder="Enter your code">
+                </form>
+                <div class="col">TOTAL PRICE: &euro; <input id='total' type=number style="width: 100px; height: 30px"
+                        value=0.00 readonly /> </div>
+                <a href="/checkout"><button class="btn" style="padding: 1rem">CHECKOUT</button></a>
+                <hr>
+            </div>
+        </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        updateTotal();
+    });
+
+    function updateTotal() {
+        var total = document.getElementById("total").value;
+        var total_price = 0.00;
+        var inputs = $(".items");
+        for (var i = 0; i < inputs.length; i++) {
+            total_price = total_price + parseFloat($(inputs[i]).val());
+        }
+        document.getElementById("total").value = total_price.toFixed(2);
+        $.ajax({
+
+            type: 'GET',
+
+            url: "{% url 'updateTotal' %}",
+
+            data: {
+                "total_price": total_price
+            },
+
+            success: function (response) {
+
+                // if not valid user, alert the user
+
+
+            },
+
+            error: function (response) {
+
+                console.log(response)
+
+            }
+
+        })
+    };
+    $(document).on('click', '#inc', function (e) {
+        e.preventDefault();
+        var target = e.target;
+        var input = $(this).next();
+
+        var value = parseInt(input.val());
+        value++;
+        input.val(value);
+        var price = $(this).parent().next().children().first().next();
+        price_val = parseFloat(price.val());
+        parseFloat(total)
+        org_price = parseFloat(price.data('id'));
+        price_val = price_val + org_price;
+        price.val(price_val.toFixed(2));
+        updateTotal();
+        var item_id = input.data('id');
+        $.ajax({
+
+            type: 'GET',
+
+            url: "{% url 'cartprice' %}",
+
+            data: {
+                "id": item_id,
+                "quantity": value
+            },
+
+            success: function (response) {
+
+                // if not valid user, alert the user
+
+
+            },
+
+            error: function (response) {
+
+                console.log(response)
+
+            }
+
+        })
+
+    });
+    $(document).on('click', '#dec', function (e) {
+        e.preventDefault();
+        var target = e.target;
+        var input = $(this).prev();
+        var value = parseInt(input.val());
+        if (value <= 1) {
+            return;
+        }
+        value--;
+        input.val(value);
+        var price = $(this).parent().next().children().first().next();
+        price_val = parseFloat(price.val());
+        org_price = parseFloat(price.data('id'));
+        price_val = price_val - org_price;
+        price.val(price_val.toFixed(2));
+        updateTotal();
+        var item_id = input.data('id');
+
+        $.ajax({
+
+            type: 'GET',
+
+            url: "{% url 'cartprice' %}",
+
+            data: {
+                "id": item_id,
+                "quantity": value
+            },
+
+            success: function (response) {
+
+                // if not valid user, alert the user
+
+
+            },
+
+            error: function (response) {
+
+                console.log(response)
+
+            }
+
+        })
+    });
+    $(document).on('click', ".item-button", function () {
+        var item_id = $(this).data('id');
+        $(this).parent().parent().remove();
+        $.ajax({
+
+            type: 'GET',
+
+            url: "{% url 'deletecartitem' %}",
+
+            data: {
+                "id": item_id
+            },
+
+            success: function (response) {
+
+                // if not valid user, alert the user
+
+                updateTotal();
+
+
+            },
+
+            error: function (response) {
+
+                console.log(response)
+
+            }
+
+        })
+
+    });
+</script>
+
+</html>
